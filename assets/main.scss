@@ -1,1 +1,245 @@
+---
+---
+
+@import "minima";
+
+/* =========================
+   H-ON DESIGN SYSTEM
+   ========================= */
+
+:root {
+  --color-primary: #233B5B;
+  --color-accent: #3976B9;
+  --color-background: #FFFFFF;
+  --color-surface: #F5F7FA;
+  --color-text: #202B3A;
+  --color-muted: #738096;
+  --color-border: #E5EAF0;
+  --radius: 12px;
+}
+
+/* Base */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Noto Sans KR", sans-serif;
+  line-height: 1.75;
+}
+
+.wrapper {
+  max-width: 1100px;
+}
+
+/* Header */
+
+.site-header {
+  border-top: 3px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-title {
+  color: var(--color-primary) !important;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.site-nav .page-link {
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.site-nav .page-link:hover {
+  color: var(--color-accent);
+}
+
+/* Home Hero */
+
+.home-hero {
+  padding: 90px 0 100px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.home-hero h1 {
+  color: var(--color-primary);
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.2;
+  margin: 20px 0;
+}
+
+.hero-description {
+  color: var(--color-muted);
+  font-size: 17px;
+  max-width: 580px;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+
+.primary-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: white !important;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.2s ease;
+}
+
+.primary-button:hover {
+  background: var(--color-accent);
+}
+
+/* Sections */
+
+.home-section {
+  padding: 65px 0;
+}
+
+.home-section h2,
+.home-about h2 {
+  color: var(--color-primary);
+  font-size: 28px;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+
+.home-section > p,
+.home-about p {
+  color: var(--color-muted);
+}
+
+/* Category Cards */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.category-card {
+  display: block;
+  padding: 28px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+.category-card span {
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.category-card h3 {
+  color: var(--color-primary);
+  font-size: 23px;
+  font-weight: 750;
+  margin: 15px 0 8px;
+}
+
+.category-card p {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* About */
+
+.home-about {
+  padding: 55px 35px;
+  margin: 20px 0 70px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+}
+
+.home-about a {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Blog Content */
+
+.post-title,
+.post-link {
+  color: var(--color-primary);
+}
+
+.post-content {
+  line-height: 1.9;
+}
+
+.post-content h2,
+.post-content h3 {
+  color: var(--color-primary);
+  margin-top: 38px;
+}
+
+.post-content pre {
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.post-content code {
+  font-size: 0.9em;
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  background: #FAFBFC;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+  .home-hero {
+    padding: 65px 0;
+  }
+
+  .home-section {
+    padding: 45px 0;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    padding: 22px;
+  }
+
+  .home-about {
+    padding: 30px 22px;
+  }
+}
 
