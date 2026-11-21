@@ -1,7 +1,23 @@
+# =========================
+# H-ON BLOG CONFIGURATION
+# =========================
 
 title: "H-ON"
-description: "Cybersecurity를 기록하는 개인 블로그"
-theme: minima
+description: "Think. Learn. Secure. | Cybersecurity & Technology Blog"
+
 url: "https://h-on.github.io"
 baseurl: ""
+
+# Theme
+theme: minima
+
+# Markdown
 markdown: kramdown
+
+# Navigation Menu
+header_pages:
+  - blog.md
+  - security.md
+  - practice.md
+  - project.md
+  - about.md
