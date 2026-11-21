@@ -1,0 +1,49 @@
+
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: posts
+    label: 블로그 게시글
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      fields: [title, date, categories]
+      sort: date
+      order: desc
+    fields:
+      - name: layout
+        type: string
+        default: post
+        hidden: true
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: date
+        label: 작성 날짜
+        type: date
+        options:
+          time: true
+      - name: categories
+        label: 카테고리
+        type: select
+        options:
+          values:
+            - value: security
+              label: Security
+            - value: practice
+              label: Practice
+            - value: project
+              label: Project
+      - name: tags
+        label: 태그
+        type: string
+        list: true
+      - name: body
+        label: 본문
+        type: rich-text
