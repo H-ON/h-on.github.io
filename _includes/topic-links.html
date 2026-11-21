@@ -1,0 +1,6 @@
+<nav class="topic-links" aria-label="카테고리">
+  <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' %} aria-current="page"{% endif %}>전체</a>
+  {% for topic in site.data.topics %}
+    <a href="{{ topic.url | relative_url }}"{% if page.url == topic.url %} aria-current="page"{% endif %}>{{ topic.name | escape }}</a>
+  {% endfor %}
+</nav>

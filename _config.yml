@@ -7,6 +7,8 @@ description: "Think. Learn. Secure. | Cybersecurity & Technology Blog"
 
 url: "https://h-on.github.io"
 baseurl: ""
+lang: ko
+timezone: Asia/Seoul
 
 # Theme
 theme: minima
@@ -20,4 +22,5 @@ header_pages:
   - security.md
   - practice.md
   - project.md
+  - tags.md
   - about.md

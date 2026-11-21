@@ -3,53 +3,42 @@ layout: default
 title: Home
 permalink: /
 ---
-
-<div class="home-hero">
-  <p class="eyebrow">CYBERSECURITY & TECHNOLOGY</p>
-  <h1>Think. Learn. Secure.</h1>
-  <p class="hero-description">
-    공부한 것을 기록하고, 직접 실습하며,
-    보안 전문가를 향해 성장하는 공간입니다.
-  </p>
-  <a class="primary-button" href="/blog/">Explore Blog →</a>
-</div>
-
-<section class="home-section">
-  <h2>Explore</h2>
-  <p>관심 있는 분야를 선택해 공부 기록을 살펴보세요.</p>
-
-  <div class="category-grid">
-    <a class="category-card" href="/blog/">
-      <span>01 / ARCHIVE</span>
-      <h3>Blog</h3>
-      <p>전체 공부 기록과 최신 게시글</p>
-    </a>
-
-    <a class="category-card" href="/security/">
-      <span>02 / KNOWLEDGE</span>
-      <h3>Security</h3>
-      <p>사이버보안 이론과 핵심 개념</p>
-    </a>
-
-    <a class="category-card" href="/practice/">
-      <span>03 / HANDS-ON</span>
-      <h3>Practice</h3>
-      <p>실습, 문제 풀이와 분석 기록</p>
-    </a>
-
-    <a class="category-card" href="/project/">
-      <span>04 / BUILD</span>
-      <h3>Project</h3>
-      <p>프로젝트와 활동 경험</p>
-    </a>
+<section class="hero">
+  <div class="wrapper hero-inner">
+    <div>
+      <p class="kicker">CYBERSECURITY &amp; TECHNOLOGY</p>
+      <h1>Think. Learn.<br><em>Secure.</em></h1>
+      <p class="hero-description">사이버보안과 컴퓨터공학을 공부하며 배운 지식, 직접 해본 실습, 그리고 프로젝트를 기록합니다.</p>
+      <a class="button button-primary" href="{{ '/blog/' | relative_url }}">블로그 둘러보기</a>
+    </div>
+    <div class="hero-art" aria-hidden="true"><span></span></div>
   </div>
 </section>
-
-<section class="home-about">
-  <h2>About H-ON</h2>
-  <p>
-    컴퓨터공학과 사이버보안을 공부하며
-    배운 지식과 경험을 차곡차곡 기록합니다.
-  </p>
-  <a href="/about/">More About Me →</a>
+<section class="wrapper home-section" aria-labelledby="latest-heading">
+  <div class="section-heading">
+    <h2 id="latest-heading">최신 게시글</h2>
+    <a href="{{ '/blog/' | relative_url }}">전체 게시글 보기</a>
+  </div>
+  <div class="post-grid">
+    {% for entry in site.posts limit: 4 %}
+      {% include post-card.html post=entry heading='h3' %}
+    {% else %}
+      <p class="empty-state">아직 공개된 게시글이 없습니다.</p>
+    {% endfor %}
+  </div>
+</section>
+<section class="topic-section" aria-labelledby="topics-heading">
+  <div class="wrapper home-section">
+    <h2 id="topics-heading">분야별로 보기</h2>
+    <div class="topic-grid">
+      {% for topic in site.data.topics %}
+        {% assign entries = site.categories[topic.slug] %}
+        <a class="topic-card" href="{{ topic.url | relative_url }}">
+          <h3>{{ topic.name | escape }}</h3>
+          <p>{{ topic.description | escape }}</p>
+          <span>{{ entries.size | default: 0 }}개 게시글</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
 </section>

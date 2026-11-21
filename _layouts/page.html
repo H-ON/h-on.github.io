@@ -1,0 +1,7 @@
+---
+layout: default
+---
+<article class="wrapper page-shell">
+  <header class="page-heading"><h1>{{ page.title | escape }}</h1></header>
+  <div class="prose">{{ content | replace: '<h1 ', '<h2 ' | replace: '<h1>', '<h2>' | replace: '</h1>', '</h2>' }}</div>
+</article>

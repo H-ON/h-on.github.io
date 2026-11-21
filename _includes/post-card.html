@@ -1,0 +1,15 @@
+{% assign entry = include.post %}
+{% assign summary = entry.description | default: entry.excerpt | strip_html | strip_newlines | strip %}
+{% assign heading = include.heading | default: 'h2' %}
+<article class="post-card"{% if include.searchable %} data-post data-search="{{ entry.title | append: ' ' | append: summary | escape }} {{ entry.categories | join: ' ' | escape }} {{ entry.tags | join: ' ' | escape }}"{% endif %}>
+  {% include post-meta.html post=entry %}
+  <{{ heading }}><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></{{ heading }}>
+  {% if summary != empty %}<p>{{ summary | truncate: 155 | escape }}</p>{% endif %}
+  {% if entry.tags.size > 0 %}
+    <ul class="tag-links" aria-label="태그">
+      {% for tag in entry.tags %}
+        <li><a href="{{ '/tags/' | relative_url }}#tag-{{ tag | url_encode | url_encode }}">#{{ tag | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

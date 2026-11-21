@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign entries = site.categories[page.category] %}
+<section class="wrapper page-shell">
+  <header class="page-heading">
+    <h1>{{ page.title | escape }}</h1>
+    <div class="lede">{{ content }}</div>
+  </header>
+  {% include topic-links.html %}
+  <div class="post-grid">
+    {% for entry in entries %}
+      {% include post-card.html post=entry %}
+    {% else %}
+      <p class="empty-state">{{ page.empty_message | escape }} <a href="{{ '/blog/' | relative_url }}">전체 게시글 보기</a></p>
+    {% endfor %}
+  </div>
+</section>

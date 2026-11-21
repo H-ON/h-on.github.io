@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% assign article_content = content | replace: '<h1 ', '<h2 ' | replace: '<h1>', '<h2>' | replace: '</h1>', '</h2>' %}
+<article class="wrapper article h-entry">
+  <header class="article-header">
+    <a class="back-link" href="{{ '/blog/' | relative_url }}">전체 게시글</a>
+    {% include post-meta.html post=page %}
+    <h1 class="p-name">{{ page.title | escape }}</h1>
+    {% if page.description %}<p class="lede">{{ page.description | escape }}</p>{% endif %}
+  </header>
+  <div class="prose e-content">{{ article_content }}</div>
+  {% if page.tags.size > 0 %}
+    <ul class="tag-links article-tags" aria-label="태그">
+      {% for tag in page.tags %}
+        <li><a href="{{ '/tags/' | relative_url }}#tag-{{ tag | url_encode | url_encode }}">#{{ tag | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if page.previous or page.next %}
+    <nav class="article-nav" aria-label="인접 게시글">
+      {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span>이전 글</span>{{ page.previous.title | escape }}</a>{% endif %}
+      {% if page.next %}<a href="{{ page.next.url | relative_url }}"><span>다음 글</span>{{ page.next.title | escape }}</a>{% endif %}
+    </nav>
+  {% endif %}
+</article>
