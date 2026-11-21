@@ -6,24 +6,19 @@ permalink: /project/
 
 # Project
 
-개인 및 팀 프로젝트와 개발 활동을 기록하는 공간입니다.
+직접 진행한 프로젝트와 활동 경험을 기록하는 공간입니다.
 
-프로젝트의 목표, 사용 기술, 구현 과정, 문제 해결 및 결과를 정리합니다.
-
-{% assign posts = site.categories.project | sort: "date" | reverse %}
+{% assign posts = site.posts | where_exp: "post", "post.categories contains 'project'" %}
 
 {% for post in posts %}
+### [{{ post.title }}]({{ post.url | relative_url }})
 
-## [{{ post.title }}]({{ post.url | relative_url }})
-
-{{ post.date | date: "%Y-%m-%d" }}
+{{ post.date | date: "%Y년 %m월 %d일" }}
 
 {{ post.excerpt | strip_html | truncate: 150 }}
 
 ---
 
 {% else %}
-
-아직 등록된 프로젝트가 없습니다.
-
+아직 작성된 프로젝트 게시글이 없습니다.
 {% endfor %}
