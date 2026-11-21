@@ -32,11 +32,10 @@ permalink: /
     <h2 id="topics-heading">분야별로 보기</h2>
     <div class="topic-grid">
       {% for topic in site.data.topics %}
-        {% assign entries = site.categories[topic.slug] %}
         <a class="topic-card" href="{{ topic.url | relative_url }}">
           <h3>{{ topic.name | escape }}</h3>
           <p>{{ topic.description | escape }}</p>
-          <span>{{ entries.size | default: 0 }}개 게시글</span>
+          <span>{% include category-posts.html slug=topic.slug count=true %}개 게시글</span>
         </a>
       {% endfor %}
     </div>

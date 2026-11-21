@@ -16,6 +16,14 @@ theme: minima
 # Markdown
 markdown: kramdown
 
+# Keep the public route for the existing CMS post whose filename has no slug.
+defaults:
+  - scope:
+      path: "_posts/2026-11-22-.md"
+      type: posts
+    values:
+      permalink: /practice/2026/11/22/practice-notes/
+
 # Navigation Menu
 header_pages:
   - blog.md

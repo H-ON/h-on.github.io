@@ -9,13 +9,16 @@ content:
     type: collection
     path: _posts
     format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{primary}.md"
+    filename: "{year}-{month}-{day}-{fields.post_id}.md"
     view:
       primary: title
       fields: [title, date, categories]
       sort: date
       order: desc
     fields:
+      - name: post_id
+        type: uuid
+        hidden: true
       - name: layout
         type: string
         default: post
@@ -32,13 +35,14 @@ content:
       - name: categories
         label: 카테고리
         type: select
+        required: true
         options:
           values:
-            - value: security
+            - name: security
               label: Security
-            - value: practice
+            - name: practice
               label: Practice
-            - value: project
+            - name: project
               label: Project
       - name: tags
         label: 태그

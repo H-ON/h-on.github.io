@@ -1,0 +1,18 @@
+{%- assign category_posts = '' | split: ',' -%}
+{%- for group in site.categories -%}
+  {%- assign category_key = group[0] | strip | downcase -%}
+  {%- if category_key == include.slug -%}
+    {%- assign category_posts = category_posts | concat: group[1] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign category_posts = category_posts | uniq -%}
+{%- if include.count -%}
+  {{- category_posts.size -}}
+{%- else -%}
+  {%- assign category_posts = category_posts | sort: 'date' | reverse -%}
+  {%- for entry in category_posts -%}
+    {% include post-card.html post=entry %}
+  {%- else -%}
+    <p class="empty-state">{{ include.empty_message | escape }} <a href="{{ '/blog/' | relative_url }}">전체 게시글 보기</a></p>
+  {%- endfor -%}
+{%- endif -%}
