@@ -16,6 +16,9 @@ theme: minima
 # Markdown
 markdown: kramdown
 
+kramdown:
+  input: GFM
+
 # Keep the public route for the existing CMS post whose filename has no slug.
 defaults:
   - scope:
